@@ -19,12 +19,13 @@ function setup(){
 
 
 function draw(){
-  background("pink");
+  background("white");
   if(contestantCount === 2){
     quiz.update(1);
   }
   if(gameState === 1){
-    clear();
+   clear();
+    console.log("Inside Play")
     quiz.play();
   }
 }

@@ -1,6 +1,6 @@
 class Quiz {
   constructor(){
-    this.title = createElement('h1')
+  //  this.title = createElement('h1')
   }
 
   getState(){
@@ -32,29 +32,36 @@ class Quiz {
 
   play(){
     question.hide();
-  
-
-    for(var plr in allContestants){
-      var correctAns = "2";
-      if(correctAns === allContestants[plr].answer){
-      fill("Green")
-    }else {
-      fill("red");
-    }
-  }
-    
-    this.title.html("MyQuiz Game");
-    this.title.position(350, 0);
-
-    getContestantInfo( ) ;
+    background("aqua")
+    fill(0)
+    textSize(30);
+    text("Result of the Quiz",340, 50);
+    text("----------------------------",320, 65);
+    Contestant.getPlayerInfo() ;   
 
     if(allContestants !== undefined){
-      fill("blue");
+      fill("Red");
       textSize(20);
-      text("NOTE: Contestant who answered correct are highlighhted in green color!", 130,230);
+      var display_Answers = 230;
+      for(var plr in allContestants){
+        var correctAns = "2";
+        console.log(allContestants[plr].answer)
+       var correctAns = "2";
+       if (correctAns === allContestants[plr].answer)
+         fill("Green")
+       else
+         fill("red");
+
+         display_Answers+=30;
+        textSize(20);
+        text(allContestants[plr].name + ": " + allContestants[plr].answer, 250,display_Answers)
 
     }
+
+    
   
+  }
+
   }
 
 }
